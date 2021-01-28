@@ -173,6 +173,7 @@ namespace ShaderConductor
             bool enable16bitTypes = false;      // Enable 16-bit types, such as half, uint16_t. Requires shader model 6.2+
             bool enableDebugInfo = false;       // Embed debug info into the binary
             bool disableOptimizations = false;  // Force to turn off optimizations. Ignore optimizationLevel below.
+            bool invertYCoordinate = false;     // -fvk-invert-y
 
             int optimizationLevel = 3; // 0 to 3, no optimization to most optimization
             ShaderModel shaderModel = {6, 0};

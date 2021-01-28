@@ -642,6 +642,11 @@ namespace
             dxcArgStrings.push_back(L"all");
         }
 
+        if (options.invertYCoordinate)
+        {
+            dxcArgStrings.push_back(L"-fvk-invert-y");
+        }
+
         switch (targetLanguage)
         {
         case ShadingLanguage::Dxil:
