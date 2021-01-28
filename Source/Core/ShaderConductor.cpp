@@ -642,6 +642,39 @@ namespace
             dxcArgStrings.push_back(L"all");
         }
 
+        for (uint32_t i = 0; i < options.numRegisterShifts; i++)
+        {
+            const auto& shift = options.registerShifts[i];
+
+            if (shift.shiftCBuffersBindings > 0)
+            {
+                dxcArgStrings.push_back(L"-fvk-b-shift");
+                dxcArgStrings.push_back(std::to_wstring(shift.shiftCBuffersBindings));
+                dxcArgStrings.push_back(std::to_wstring(shift.space));
+            }
+
+            if (shift.shiftUABuffersBindings > 0)
+            {
+                dxcArgStrings.push_back(L"-fvk-u-shift");
+                dxcArgStrings.push_back(std::to_wstring(shift.shiftUABuffersBindings));
+                dxcArgStrings.push_back(std::to_wstring(shift.space));
+            }
+
+            if (shift.shiftSamplersBindings > 0)
+            {
+                dxcArgStrings.push_back(L"-fvk-s-shift");
+                dxcArgStrings.push_back(std::to_wstring(shift.shiftSamplersBindings));
+                dxcArgStrings.push_back(std::to_wstring(shift.space));
+            }
+
+            if (shift.shiftTexturesBindings > 0)
+            {
+                dxcArgStrings.push_back(L"-fvk-t-shift");
+                dxcArgStrings.push_back(std::to_wstring(shift.shiftTexturesBindings));
+                dxcArgStrings.push_back(std::to_wstring(shift.space));
+            }
+        }
+
         if (options.invertYCoordinate)
         {
             dxcArgStrings.push_back(L"-fvk-invert-y");
